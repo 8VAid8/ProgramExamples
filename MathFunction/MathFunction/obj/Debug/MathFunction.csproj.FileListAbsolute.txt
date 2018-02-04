@@ -1,0 +1,14 @@
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\bin\Debug\MathFunction.exe.config
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\bin\Debug\MathFunction.exe
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\bin\Debug\MathFunction.pdb
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\obj\Debug\MathFunction.csproj.CoreCompileInputs.cache
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\obj\Debug\MathFunction.exe
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\obj\Debug\MathFunction.pdb
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\MathFunction\MathFunction\obj\Debug\MathFunction.csprojResolveAssemblyReference.cache
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\bin\Debug\MathFunction.exe.config
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\bin\Debug\MathFunction.exe
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\bin\Debug\MathFunction.pdb
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\obj\Debug\MathFunction.csprojResolveAssemblyReference.cache
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\obj\Debug\MathFunction.csproj.CoreCompileInputs.cache
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\obj\Debug\MathFunction.exe
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\ProgramExamples\MathFunction\MathFunction\obj\Debug\MathFunction.pdb

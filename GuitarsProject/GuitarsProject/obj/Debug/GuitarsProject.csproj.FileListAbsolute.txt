@@ -1,0 +1,7 @@
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\obj\Debug\GuitarsProject.csprojResolveAssemblyReference.cache
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\obj\Debug\GuitarsProject.csproj.CoreCompileInputs.cache
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\bin\Debug\GuitarsProject.exe.config
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\bin\Debug\GuitarsProject.exe
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\bin\Debug\GuitarsProject.pdb
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\obj\Debug\GuitarsProject.exe
+C:\Users\alexe\Documents\Visual Studio 2017\Projects\Участие в интеграции ПО\GuitarsProject\GuitarsProject\obj\Debug\GuitarsProject.pdb
