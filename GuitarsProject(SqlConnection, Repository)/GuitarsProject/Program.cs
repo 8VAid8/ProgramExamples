@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GuitarsProject.DAL;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace GuitarsProject
         private static Guitar GetYamahaPacifica012()
         {
             Guitar yamahaPacifica12 = new Guitar();
+            yamahaPacifica12.Price = 300;
             yamahaPacifica12.Body = new Body
             {
                 Wood = "агатис",
@@ -48,6 +50,7 @@ namespace GuitarsProject
         private static Guitar GetGibsonLesPaul()
         {
             Guitar gibsonLesPaul = new Guitar();
+            gibsonLesPaul.Price = 3000;
             gibsonLesPaul.Body = new Body
             {
                 Wood = "Фигурный структурный клён",
@@ -83,6 +86,7 @@ namespace GuitarsProject
         private static Guitar GetFenderStratocaster()
         {
             Guitar fenderStrat = new Guitar();
+            fenderStrat.Price = 1500;
             fenderStrat.Body = new Body
             {
                 Wood = "ольха",
@@ -127,114 +131,22 @@ namespace GuitarsProject
                 yamahaPacifica012,
                 fenderStrat,
                 gibsonLesPaul
-                
+
             };
 
-            WriteGuitarsInfo(guitars);
-            Console.WriteLine("Выберите номер сортировки:\n1)По количеству ладов;\n" +
-                "2)По марке гитары\r\n" +
-                "3)По названию дерева корпуса\r\n");
-            int s = Convert.ToInt32(Console.ReadLine());
-            bool isOkInput = true;
-            if (s == 1)
+            GuitarsRepository guitarsRepo = new GuitarsRepository();
+            int i = 10;
+            foreach (var guitar in guitars)
             {
-                SortByFretsCount(guitars, true);
-                Console.WriteLine("После сортировки по количеству ладов:");
+                guitarsRepo.Create(i,
+                    guitar.Brand,
+                    guitar.Model,
+                    guitar.Color.Name,
+                    guitar.Price);
+                i++; //лучше добавить автоинкремент в бд
             }
-            else if (s == 2)
-            {
-                guitars.Sort();
-                Console.WriteLine("После сортировки по марке гитары:");
-            }
-            else if (s == 3)
-            {
-                guitars.Sort(new BodyWoodComparer());
-                Console.WriteLine("После сортировки по названию дерева корпуса:");
-            }
-            else
-            {
-                isOkInput = false;
-                Console.WriteLine("Неверный метод сортировки");
-            }
-            if (isOkInput)
-            {
-                WriteGuitarsInfo(guitars);
-            }   
-
             Console.ReadKey();
         }
 
-        /// <summary>
-        ///  Сортировка по количеству ладов
-        /// </summary>
-        /// <param name="guitars">список гитар</param>
-        /// <param name="isAscending">сортировка по возрастанию</param>
-        private static void SortByFretsCount(List<Guitar> guitars, bool isAscending)
-        {
-            for (int i = 0; i < guitars.Count; i++)
-            {
-                for (int j = 0; j < guitars.Count - i - 1; j++)
-                {
-                    if (isAscending)
-                    {
-                        if (guitars[j].Neck.FretsCount > guitars[j + 1].Neck.FretsCount)
-                        {
-                            Guitar temp = guitars[j];
-                            guitars[j] = guitars[j + 1];
-                            guitars[j + 1] = temp;
-                        }
-                    }
-                    else
-                    {
-                        if (guitars[j].Neck.FretsCount > guitars[j + 1].Neck.FretsCount)
-                        {
-                            Guitar temp = guitars[j];
-                            guitars[j] = guitars[j + 1];
-                            guitars[j + 1] = temp;
-                        }
-                    }
-                }
-            }
-        }
-
-        private static void WriteGuitarsInfo(List<Guitar> guitars)
-        {
-            Console.WriteLine("Список гитар:\r\n");
-            int n = 1;
-            foreach(var guitar in guitars)
-            {
-                Console.WriteLine($"Гитара {n}:\r\n");
-                n++;
-                string guitarInfo = $"Марка: {guitar.Brand}\r\n" +
-                    $"Модель: {guitar.Model}\r\n" +
-                    $"Тип: {guitar.Type}\r\n" +
-                    $"Цвет: {guitar.Color}\r\n" +
-                    $"Корпус\r\n" +
-                    $"Материал дерева: {guitar.Body.Wood}\r\n" +
-                    $"Накладка: {(guitar.Body.Cover == true ? "есть" : "нет")}\r\n" +
-                    $"Гриф\r\n" +
-                    $"Материал дерева: {guitar.Neck.Wood}\r\n" +
-                    $"Количество ладов: {guitar.Neck.FretsCount}\r\n" +
-                    $"Звукосниматели\r\n";
-                int i = 1;
-                foreach(var pickup in guitar.Pickups)
-                {
-                    guitarInfo += $"Звукосниматель {i}\r\n" +
-                        $"Тип: {pickup.Type}\r\n" +
-                        $"Цвет: {pickup.Color}\r\n";
-                    i++;
-                }
-                i = 1;
-                foreach (var guitarString in guitar.Strings)
-                {
-                    guitarInfo += $"Струна {i}\r\n" +
-                        $"Метал: {guitarString.Metal}\r\n" +
-                        $"Толщина: {guitarString.Gauge}\r\n";
-                    i++;
-                }
-
-                Console.WriteLine(guitarInfo);
-            }
-        }
     }
 }

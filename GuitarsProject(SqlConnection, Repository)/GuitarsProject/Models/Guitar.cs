@@ -18,6 +18,7 @@ namespace GuitarsProject
     {
         public string Brand { get; set; } //марка (Yamaha, Gibson)
         public string Model { get; set; } //модель (Pacifica, Les Paul)
+        public decimal Price { get; set; } //цена
         public GuitarType Type { get; set; } //тип гитары (страт, телек, Лес Пол)
         public Color Color { get; set; } // цвет гитары
         public Neck Neck { get; set; } //гриф
