@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container col-lg-10">
+        <h2>Edit guitar info</h2>
+        <div class="form-group row">
+            <label for="brand-input" class="col-2 col-form-label">Brand</label>
+            <div class="col-10">
+                <input name="brand" class="form-control" type="text" placeholder="Gibson" id="brand-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="model-input" class="col-2 col-form-label">Model</label>
+            <div class="col-10">
+                <input name="model" class="form-control" type="text" placeholder="Les Paul" id="model-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="type-input" class="col-2 col-form-label">Type</label>
+            <div class="col-10">
+                <input name="type" class="form-control" type="text" placeholder="Les Paul" id="type-input">
+            </div>
+        </div>
+        <div class="col-10">
+            <input name="id-input" class="form-control" type="hidden" id="id-input">
+        </div>
+        <div class="form-group row">
+            <button onclick="update();" class="btn btn-primary col-2">Save</button>
+            <button onclick="location.assign('index.html');" class="btn btn-secondary col-2">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        //init------------------------------------
+        $(document).ready(function () {
+
+            id = window.location.href.split("?")[1].split("=")[1];
+            loadGuitar(id);
+        });
+
+        function loadGuitar(id) {
+            $.get("/api/guitars/" + id, function (data) {
+                updateData(data)
+            });
+            var guitar = $.getJSON('/api/guitars/' + id);
+        }
+
+        function updateData(data) {
+            var brandInput = document.getElementById('brand-input');
+            brandInput.value = data.brand;
+            var modelInput = document.getElementById('model-input');
+            modelInput.value = data.model;
+            var typeInput = document.getElementById('type-input');
+            typeInput.value = data.type;
+            var idInput = document.getElementById('id-input');
+            idInput.Value = data.id;
+        }
+        //-----------------------------------------
+        function fillGuitar() {
+            var brandInput = document.getElementById('brand-input');
+            var modelInput = document.getElementById('model-input');
+            var typeInput = document.getElementById('type-input');
+            var guitar = {
+                guitarId: id,
+                brand: brandInput.value,
+                model: modelInput.value,
+                type: typeInput.value
+            };
+            return guitar;
+        }
+
+        function update() {
+            var guitar = fillGuitar();
+            updateGuitar(id, guitar);
+            location.assign('index.html');
+        }
+    </script>
+</body>
+
+</html>

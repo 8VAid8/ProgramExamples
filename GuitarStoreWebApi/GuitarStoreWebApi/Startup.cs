@@ -32,15 +32,18 @@ namespace GuitarStoreWebApi
             //// добавляем контекст GuitarContext в качестве сервиса в приложение
             //services.AddDbContext<GuitarContext>(options =>
             //    options.UseSqlServer(connection));
-
+            
             //для разработки
             services.AddDbContext<GuitarContext>(options =>
             options.UseInMemoryDatabase("GuitarDB"));
+            services.AddCors();
+            
             //---------------
 
             services.AddMvc().AddJsonOptions(options => {
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+ 
             });
         }
 
@@ -51,8 +54,10 @@ namespace GuitarStoreWebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
+            app.UseCors(c => c.AllowAnyHeader());
             app.UseMvc();
+            
         }
     }
 }

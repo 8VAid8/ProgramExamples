@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container col-lg-10">
+        <h2>Create guitar</h2>
+        <div class="form-group row">
+            <label for="brand-input" class="col-2 col-form-label">Brand</label>
+            <div class="col-10">
+                <input name="brand" class="form-control" type="text" placeholder="Gibson" id="brand-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="model-input" class="col-2 col-form-label">Model</label>
+            <div class="col-10">
+                <input name="model" class="form-control" type="text" placeholder="Les Paul" id="model-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="type-input" class="col-2 col-form-label">Type</label>
+            <div class="col-10">
+                <input name="type" class="form-control" type="text" placeholder="Les Paul" id="type-input">
+            </div>
+        </div>
+        <div class="col-10">
+            <input name="id-input" class="form-control" type="hidden" id="id-input">
+        </div>
+        <div class="form-group row">
+            <button onclick="add();" class="btn btn-primary col-2">Save</button>
+            <button onclick="location.assign('index.html');" class="btn btn-secondary col-2">Cancel</button>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function fillGuitar() {
+            var brandInput = document.getElementById('brand-input');
+            var modelInput = document.getElementById('model-input');
+            var typeInput = document.getElementById('type-input');
+            var guitar = {
+                guitarId: id,
+                brand: brandInput.value,
+                model: modelInput.value,
+                type: typeInput.value
+            };
+            return guitar;
+        }
+
+        function add() {
+            var guitar = fillGuitar();
+            createGuitar(guitar);
+            location.assign('index.html');
+        }
+    </script>
+</body>
+
+</html>

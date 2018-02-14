@@ -182,10 +182,7 @@ namespace GuitarsProject.DAL
 
         public void Update(Guitar guitar)
         {
-            Guitar updatingGuitar = db.Guitars
-                .Where(g => g.GuitarId == guitar.GuitarId)
-                .FirstOrDefault();
-            updatingGuitar = guitar;
+            db.Guitars.Update(guitar);
             db.SaveChanges();
         }
 
