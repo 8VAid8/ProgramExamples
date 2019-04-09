@@ -43,16 +43,16 @@ namespace GuitarsProject
             string brand, model, color;
             decimal price;
 
-            Console.WriteLine("Insert brand of the car");
+            Console.WriteLine("Insert brand of the guitar");
             brand = Console.ReadLine();
 
-            Console.WriteLine("Insert model of the car");
+            Console.WriteLine("Insert model of the guitar");
             model = Console.ReadLine();
 
-            Console.WriteLine("Insert color of the car");
+            Console.WriteLine("Insert color of the guitar");
             color = Console.ReadLine();
 
-            Console.WriteLine("Insert price of the car");
+            Console.WriteLine("Insert price of the guitar");
             price = decimal.Parse(Console.ReadLine());
 
             g.Create(1, brand, model, color, price);
