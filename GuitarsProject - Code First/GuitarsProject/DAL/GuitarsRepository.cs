@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Data.Entity;
 
 namespace GuitarsProject.DAL
 {
@@ -12,15 +11,23 @@ namespace GuitarsProject.DAL
             db = new GuitarContext();
         }
 
-        public void Create(Guitar guitar)
+        public void Create(int id, string brand, string model, string color, decimal price)
         {
-            db.Guitars.Add(guitar);
+            Guitar creatingGuitar = new Guitar
+            {
+                Id = id,
+                Brand = brand,
+                Model = model,
+                Color = color,
+                Price = price
+            };
+            db.Guitars.Add(creatingGuitar);
             db.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            Guitar deletingGuitar = db.Guitars.Where(g => g.GuitarId == id).FirstOrDefault();
+            Guitar deletingGuitar = db.Guitars.Where(g => g.Id == id).FirstOrDefault();
             db.Guitars.Remove(deletingGuitar);
             db.SaveChanges();
         }
@@ -30,34 +37,18 @@ namespace GuitarsProject.DAL
             db.Dispose();
         }
 
-        public List<Guitar> Get()
+        public IEnumerable<Guitar> Get()
         {
-            return db.Guitars
-                .Include(x => x.Body)
-                .Include(x => x.Neck)
-                .Include(x => x.Pickups)
-                .Include(x => x.Strings)
-                .ToList();
+            return db.Guitars;
         }
 
-        public Guitar Get(int id)
+        public void Update(int id, string brand, string model, string color, decimal price)
         {
-            return db.Guitars
-                .Where(g => g.GuitarId == id)
-                .Include(x => x.Body)
-                .Include(x => x.Neck)
-                .Include(x => x.Pickups)
-                .Include(x => x.Strings)
-                .Include(x => x.Type)
-                .FirstOrDefault();
-        }
-
-        public void Update(Guitar guitar)
-        {
-            Guitar updatingGuitar = db.Guitars
-                .Where(g => g.GuitarId == guitar.GuitarId)
-                .FirstOrDefault();
-            updatingGuitar = guitar;
+            Guitar updatingGuitar = db.Guitars.Where(g => g.Id == id).FirstOrDefault();
+            updatingGuitar.Brand = brand;
+            updatingGuitar.Model = model;
+            updatingGuitar.Color = color;
+            updatingGuitar.Price = price;
             db.SaveChanges();
         }
     }

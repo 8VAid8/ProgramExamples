@@ -66,11 +66,6 @@
     <Compile Include="DAL\GuitarsRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\DbContext.cs" />
-    <Compile Include="Migrations\201904090910346_Initial.cs" />
-    <Compile Include="Migrations\201904090910346_Initial.Designer.cs">
-      <DependentUpon>201904090910346_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Guitar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,11 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904090910346_Initial.resx">
-      <DependentUpon>201904090910346_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

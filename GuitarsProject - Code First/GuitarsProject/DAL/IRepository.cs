@@ -5,10 +5,10 @@ namespace GuitarsProject.DAL
 {
     interface IRepository<T> : IDisposable where T : class
     {
-        List<T> Get(); // получение всех объектов
-        Guitar Get(int id); //получение гитары
-        void Create(Guitar guitar); //создание
-        void Delete(int id); //удаление
-        void Update(Guitar guitar); //обновление
+        IEnumerable<T> Get(); // получение всех объектов
+
+        void Create(int id, string brand, string model, string color, decimal price);
+        void Delete(int id);
+        void Update(int id, string brand, string model, string color, decimal price);
     }
 }
