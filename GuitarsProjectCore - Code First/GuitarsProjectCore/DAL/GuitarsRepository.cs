@@ -15,7 +15,7 @@ namespace GuitarsProjectCore.DAL
         {
             Guitar creatingGuitar = new Guitar
             {
-                Id = id,
+                //Id = id,
                 Brand = brand,
                 Model = model,
                 Color = color,
